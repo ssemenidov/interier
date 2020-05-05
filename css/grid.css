@@ -1,0 +1,1 @@
+.grid{display:-ms-grid;display:grid;-ms-grid-columns:(minmax(370px, 1fr))[auto-fill];grid-template-columns:repeat(auto-fill, minmax(370px, 1fr));gap:30px;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-top:50px}.grid-block img{width:100%}

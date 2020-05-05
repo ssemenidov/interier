@@ -1,0 +1,140 @@
+.product-nav {
+  background-color: #f4f4f4;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  min-height: 70px;
+
+  .nav-list {
+    color: #6c6c6c;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    margin: 10px 10px;
+  }
+
+  .nav-list-active {
+    color: #212121;
+  }
+}
+
+.content {
+  display: flex;
+  max-width: 1170px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .content-slider {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 570px;
+    height: 670px;
+    margin-bottom: 20px;
+
+    .main-slide {
+      background-image: url(../img/slider1.png);
+      background-position: center bottom;
+      max-width: 570px;
+      width: 100%;
+      max-height: 570px;
+      height: 100%;
+    }
+
+    .small-slides {
+      display: flex;
+      justify-content: space-evenly;
+      width: auto;
+
+      .small-slide {
+        width: 70px;
+        height: 70px;
+        background-image: url(../img/controll.png);
+      }
+
+      .small-slide:nth-child(1) {
+        background-image: url(../img/controll.png);
+      }
+      .small-slide:nth-child(2) {
+        background-image: url(../img/controll11.png);
+      }
+      .small-slide:nth-child(3) {
+        background-image: url(../img/controll2.png);
+      }
+    }
+  }
+
+  .content-descr {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 670px;
+    .descr-h {
+      /* Style for "Fishnet Ch" */
+      color: #212121;
+      font-size: 36px;
+      font-weight: 700;
+    }
+
+    .descr-hot {
+      /* Style for "Hot Deal" */
+      color: #e53935;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      /* Text style for "Hot Deal" */
+      color: #e53935;
+      letter-spacing: 1.8px;
+    }
+
+    .descr-price {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      color: #212121;
+      font-size: 36px;
+      font-weight: 300;
+      /* Text style for "" */
+      .price-dollar {
+        font-size: 48px;
+      }
+
+      .price-text {
+        font-size: 72px;
+        text-transform: uppercase;
+        margin: 0 10px;
+      }
+    }
+    .button {
+      background-color: #f44336;
+      max-width: 510px;
+      height: 70px;
+      border-radius: 35px;
+      width: 100%;
+      .button-text {
+        color: #ffffff;
+        font-size: 22px;
+        font-weight: 700;
+        text-transform: uppercase;
+        /* Text style for "Order Us" */
+        letter-spacing: 4.4px;
+      }
+    }
+
+    .descr-text {
+      color: #212121;
+      font-size: 16px;
+      font-weight: 300;
+      letter-spacing: 0.4px;
+      max-width: 500px;
+      p {
+        margin: 10px 0;
+      }
+    }
+  }
+}

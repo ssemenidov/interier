@@ -1,0 +1,58 @@
+.contact {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 71px;
+  flex-wrap: wrap;
+  line-height: normal;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 370px;
+  height: 370px;
+  border: 1px solid #9c9c9c;
+  background-color: #ffffff;
+  margin: 15px 10px;
+
+  h {
+    /* Style for "California" */
+    color: #212121;
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 23px 0;
+  }
+
+  .inf {
+    width: 278px;
+    height: 138px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    .inf-list {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .inf-h {
+        color: #6c6c6c;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .inf-text {
+        font-size: 14px;
+        color: #212121;
+        font-weight: 300;
+      }
+    }
+  }
+}
