@@ -9,6 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     
   </head>
   <body>
@@ -61,95 +62,71 @@
         </div>
         <div class="nav padding-site block">
           <div class="nav-head">
-            <ul>
-              <li class="nav-menu-list">
-                <a href="" class="nav-menu-link nav-menu-link-active"
-                  >Featured</a
-                >
-              </li>
-              <li class="nav-menu-list">
-                <a href="#" class="nav-menu-link">New</a>
-              </li>
-            </ul>
+            <div v-on:click="cat=false" class="nav-menu-list">
+              <div class="nav-menu-link nav-menu-link-active">
+                Featured
+              </div>
+            </div>
+            <div v-on:click="cat=true" class="nav-menu-list">
+              <div class="nav-menu-link">New</div>
+            </div>
             <div class="nav-explore">
               <a href="product-detail.html" class="nav-explore-link">
                 explore all
-                <img
-                  src="../img/arrow.svg"
-                  alt="arrow"
-                  class="nav-explore-img"
-                />
+                <img src="../img/arrow.svg" alt="arrow" class="nav-explore-img" />
               </a>
             </div>
           </div>
-          <div class="carousel">
-            
-              <li class="carousel-list">
-                <div class="carousel-toast">
-                  <a href="product-detail.html" class="button">
-                    <img class="arrow" src="../img/arrow.svg" alt="arrow" />
-                  </a>
-                  <div class="carousel-toast-h">Fishnet Chair</div>
-                  <p class="carousel-toast-p">
-                    Seat and back with upholstery made of cold cure foam
-                  </p>
-                </div>
-                <img
-                  class="carousel-image"
-                  src="../img/product-1.jpg"
-                  alt="product-1"
-                />
-              </li>
-              <li class="carousel-list">
-                <div class="carousel-toast">
-                  <a href="product-detail.html" class="button">
-                    <img class="arrow" src="../img/arrow.svg" alt="arrow" />
-                  </a>
-                  <div class="carousel-toast-h">Fishnet Chair</div>
-                  <p class="carousel-toast-p">
-                    Seat and back with upholstery made of cold cure foam
-                  </p>
-                </div>
-                <img
-                  class="carousel-image"
-                  src="../img/product-2.jpg"
-                  alt="product-1"
-                />
-              </li>
-              <li class="carousel-list">
-                <div class="carousel-toast">
-                  <a href="product-detail.html" class="button">
-                    <img class="arrow" src="../img/arrow.svg" alt="arrow" />
-                  </a>
-                  <div class="carousel-toast-h">Fishnet Chair</div>
-                  <p class="carousel-toast-p">
-                    Seat and back with upholstery made of cold cure foam
-                  </p>
-                </div>
-                <img
-                  class="carousel-image"
-                  src="../img/product-3.jpg"
-                  alt="product-1"
-                />
-              </li>
-              <li class="carousel-list">
-                <div class="carousel-toast">
-                  <a href="product-detail.html" class="button">
-                    <img class="arrow" src="../img/arrow.svg" alt="arrow" />
-                  </a>
-                  <div class="carousel-toast-h">Fishnet Chair</div>
-                  <p class="carousel-toast-p">
-                    Seat and back with upholstery made of cold cure foam
-                  </p>
-                </div>
-                <img
-                  class="carousel-image"
-                  src="../img/product-4.jpg"
-                  alt="product-1"
-                />
-              </li>
+          <div class="carousel" v-if="cat">
+            <li class="carousel-list" v-for="image in featureList">
+              <div class="carousel-toast">
+                <a href="product-detail.html" class="button">
+                  <img class="arrow" src="../img/arrow.svg" alt="arrow" />
+                </a>
+                <div class="carousel-toast-h">Fishnet Chair</div>
+                <p class="carousel-toast-p">
+                  Seat and back with upholstery made of cold cure foam
+                </p>
+              </div>
+              <img class="carousel-image" v-bind:src="image" alt="product-1" />
+            </li>
+          </div>
+          <div class="carousel" v-else>
+            <li class="carousel-list" v-for="image in newList">
+              <div class="carousel-toast">
+                <a href="product-detail.html" class="button">
+                  <img class="arrow" src="../img/arrow.svg" alt="arrow" />
+                </a>
+                <div class="carousel-toast-h">Fishnet Chair</div>
+                <p class="carousel-toast-p">
+                  Seat and back with upholstery made of cold cure foam
+                </p>
+              </div>
+              <img class="carousel-image" v-bind:src="image" alt="product-1" />
+            </li>
           </div>
         </div>
+        <script>
+          var carousel = new Vue({
+            el: ".nav",
+    
+            data: {
+              cat: false,
+              featureList: [
+                "../img/product-1.jpg",
+                "../img/product-2.jpg",
+                "../img/product-3.jpg",
+                "../img/product-4.jpg",
+              ],
+              newList: [
+                "../img/product-4.jpg",
+                "../img/product-3.jpg",
+                "../img/product-2.jpg",
+                "../img/product-1.jpg",
+              ],
+            },
+          });
+        </script>
         <div class="exlusive clearfix block">
           <ul>
             <li class="exlusive-list">
