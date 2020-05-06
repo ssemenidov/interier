@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Interior</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div class="container">
+     
+      <div class="carousel">
+        <li class="carousel-list" v-for="image in imageList">
+          <div class="carousel-toast">
+            <a href="product-detail.html" class="button">
+              <img class="arrow" src="../img/arrow.svg" alt="arrow" />
+            </a>
+            <div class="carousel-toast-h">Fishnet Chair</div>
+            <p class="carousel-toast-p">
+              Seat and back with upholstery made of cold cure foam
+            </p>
+          </div>
+          <img
+            class="carousel-image"
+            v-bind:src="image"
+            alt="product-1"
+          />
+        </li>
+    </div>
+    <script>
+      var carousel=new Vue({
+        el:'.carousel',
+        data:{
+          imageList:[
+          '../img/product-1.jpg', 
+          '../img/product-2.jpg',
+          '../img/product-3.jpg',
+          '../img/product-4.jpg'
+          ]
+        }
+      })
+    </script>  
+  </body>
+</html>
