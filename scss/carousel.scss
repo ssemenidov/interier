@@ -4,7 +4,24 @@
   width: inherit;
   flex-wrap: wrap;
 }
-
+.carousel-enter-active,
+.carousel-leave-active {
+  transition: opacity 3s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 2s;
+}
+.fade2-enter, .fade2-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+  opacity: 0;
+}
+.fade2-enter-active,
+.fade2-leave-active {
+  transition: opacity 2s;
+}
 .carousel-list {
   list-style: none;
   display: inline-block;

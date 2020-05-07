@@ -89,7 +89,7 @@
             </div>
           </div>
           <div class="carousel" v-if="active==='feature'">
-            <li class="carousel-list" v-for="image in featureList">
+            <div class="carousel-list" v-for="image in featureList">
               <div class="carousel-toast">
                 <a href="product-detail.html" class="button">
                   <img class="arrow" src="../img/arrow.svg" alt="arrow" />
@@ -100,21 +100,22 @@
                 </p>
               </div>
               <img class="carousel-image" v-bind:src="image" alt="product-1" />
-            </li>
+            </в>
           </div>
-          <div class="carousel" v-else>
-            <li class="carousel-list" v-for="image in newList">
-              <div class="carousel-toast">
-                <a href="product-detail.html" class="button">
-                  <img class="arrow" src="../img/arrow.svg" alt="arrow" />
-                </a>
-                <div class="carousel-toast-h">Fishnet Chair</div>
-                <p class="carousel-toast-p">
-                  Seat and back with upholstery made of cold cure foam
-                </p>
-              </div>
-              <img class="carousel-image" v-bind:src="image" alt="product-1" />
-            </li>
+  
+        </div>
+        <div class="carousel" v-else>
+          <div class="carousel-list" v-for="image in newList">
+            <div class="carousel-toast">
+              <a href="product-detail.html" class="button">
+                <img class="arrow" src="../img/arrow.svg" alt="arrow" />
+              </a>
+              <div class="carousel-toast-h">Fishnet Chair</div>
+              <p class="carousel-toast-p">
+                Seat and back with upholstery made of cold cure foam
+              </p>
+            </div>
+            <img class="carousel-image" v-bind:src="image" alt="product-1" />
           </div>
         </div>
         

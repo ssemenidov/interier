@@ -13,6 +13,7 @@
   </head>
   <body>
     <div class="container">
+      <div id="demo"></div>
       <div class="nav padding-site block">
         <div class="nav-head">
           <div class="nav-menu">
@@ -41,43 +42,40 @@
             </a>
           </div>
         </div>
-        <div class="carousel" v-if="active==='feature'">
-          <li class="carousel-list" v-for="image in featureList">
-            <div class="carousel-toast">
-              <a href="product-detail.html" class="button">
-                <img class="arrow" src="../img/arrow.svg" alt="arrow" />
-              </a>
-              <div class="carousel-toast-h">Fishnet Chair</div>
-              <p class="carousel-toast-p">
-                Seat and back with upholstery made of cold cure foam
-              </p>
-            </div>
-            <img class="carousel-image" v-bind:src="image" alt="product-1" />
-          </li>
-        </div>
-        <div class="carousel" v-else>
-          <li class="carousel-list" v-for="image in newList">
-            <div class="carousel-toast">
-              <a href="product-detail.html" class="button">
-                <img class="arrow" src="../img/arrow.svg" alt="arrow" />
-              </a>
-              <div class="carousel-toast-h">Fishnet Chair</div>
-              <p class="carousel-toast-p">
-                Seat and back with upholstery made of cold cure foam
-              </p>
-            </div>
-            <img class="carousel-image" v-bind:src="image" alt="product-1" />
-          </li>
-        </div>
+        <template v-if="active==='feauture'">
+          <tab v-bind:activelist="featureList"></tab>
+        </template>
+        <template v-else>
+          <tab v-bind:activelist="newList"></tab>
+        </template>
       </div>
     </div>
     <script>
+      Vue.component("tab", {
+        props: ["activelist"],
+        template: `
+        <div class="carousel">
+            <div class="carousel-list" v-for="image in activelist">
+              <div class="carousel-toast">
+                <a href="product-detail.html" class="button">
+                  <img class="arrow" src="../img/arrow.svg" alt="arrow" />
+                </a>
+                <div class="carousel-toast-h">Fishnet Chair</div>
+                <p class="carousel-toast-p">
+                  Seat and back with upholstery made of cold cure foam
+                </p>
+              </div>
+              <img class="carousel-image" v-bind:src="image" alt="product-1" />
+            </div>
+          </div>
+        
+        `,
+      });
       var carousel = new Vue({
         el: ".nav",
 
         data: {
           active: "feature",
-          cat: false,
           featureList: [
             "../img/product-1.jpg",
             "../img/product-2.jpg",
@@ -90,6 +88,11 @@
             "../img/trend-product-2.png",
             "../img/trend-product-1.png",
           ],
+        },
+        methods: {
+          currentTabComponent: function () {
+            return this.active.toLowerCase() + "List";
+          },
         },
       });
     </script>
