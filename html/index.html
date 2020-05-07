@@ -62,14 +62,25 @@
         </div>
         <div class="nav padding-site block">
           <div class="nav-head">
-            <div v-on:click="cat=false" class="nav-menu-list">
-              <div class="nav-menu-link nav-menu-link-active">
-                Featured
+            <div class="nav-menu">
+              <div v-on:click="active='feature'" class="nav-menu-list">
+                <div
+                  class="nav-menu-link"
+                  v-bind:class=" active === 'feature' ? 'nav-menu-link-active': ''"
+                >
+                  Featured
+                </div>
+              </div>
+              <div v-on:click="active='new' " class="nav-menu-list">
+                <div
+                  class="nav-menu-link"
+                  v-bind:class=" active === 'new' ? 'nav-menu-link-active': ''"
+                >
+                  New
+                </div>
               </div>
             </div>
-            <div v-on:click="cat=true" class="nav-menu-list">
-              <div class="nav-menu-link">New</div>
-            </div>
+  
             <div class="nav-explore">
               <a href="product-detail.html" class="nav-explore-link">
                 explore all
@@ -77,7 +88,7 @@
               </a>
             </div>
           </div>
-          <div class="carousel" v-if="cat">
+          <div class="carousel" v-if="active==='feature'">
             <li class="carousel-list" v-for="image in featureList">
               <div class="carousel-toast">
                 <a href="product-detail.html" class="button">
@@ -106,27 +117,7 @@
             </li>
           </div>
         </div>
-        <script>
-          var carousel = new Vue({
-            el: ".nav",
-    
-            data: {
-              cat: false,
-              featureList: [
-                "../img/product-1.jpg",
-                "../img/product-2.jpg",
-                "../img/product-3.jpg",
-                "../img/product-4.jpg",
-              ],
-              newList: [
-                "../img/product-4.jpg",
-                "../img/product-3.jpg",
-                "../img/product-2.jpg",
-                "../img/product-1.jpg",
-              ],
-            },
-          });
-        </script>
+        
         <div class="exlusive clearfix block">
           <ul>
             <li class="exlusive-list">
@@ -289,4 +280,27 @@
       </div>
     </div>
   </body>
+  
 </html>
+<script>
+  var carousel = new Vue({
+    el: ".nav",
+
+    data: {
+      active: "feature",
+      cat: false,
+      featureList: [
+        "../img/product-1.jpg",
+        "../img/product-2.jpg",
+        "../img/product-3.jpg",
+        "../img/product-4.jpg",
+      ],
+      newList: [
+        "../img/trend-product-4.png",
+        "../img/trend-product-3.png",
+        "../img/trend-product-2.png",
+        "../img/trend-product-1.png",
+      ],
+    },
+  });
+</script>
