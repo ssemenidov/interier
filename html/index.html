@@ -10,35 +10,33 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    
   </head>
   <body>
     <div class="container">
-      <div class="header  ">
+      <div class="header">
         <div class="header-content padding-site">
           <a href="index.html"><img src="../img/logo.svg" alt="logo" /></a>
-        <ul class="menu">
-          <li class="menu-list">
-            <a href="#" class="menu-link menu-link-active">HOME</a>
-          </li>
-          <li class="menu-list">
-            <a href="products.html" class="menu-link">PRODUCTS</a>
-          </li>
-          <li class="menu-list">
-            <a href="history.html" class="menu-link">HISTORY</a>
-          </li>
-          <li class="menu-list">
-            <a href="showroom.html" class="menu-link">SHOWROOM</a>
-          </li>
-          <li class="menu-list">
-            <a href="contacts.html" class="menu-link">CONTACT</a>
-          </li>
-          <li class="menu-list">
-            <img class="menu-search" src="../img/search.svg" alt="search" />
-          </li>
-        </ul>
+          <ul class="menu">
+            <li class="menu-list">
+              <a href="#" class="menu-link menu-link-active">HOME</a>
+            </li>
+            <li class="menu-list">
+              <a href="products.html" class="menu-link">PRODUCTS</a>
+            </li>
+            <li class="menu-list">
+              <a href="history.html" class="menu-link">HISTORY</a>
+            </li>
+            <li class="menu-list">
+              <a href="showroom.html" class="menu-link">SHOWROOM</a>
+            </li>
+            <li class="menu-list">
+              <a href="contacts.html" class="menu-link">CONTACT</a>
+            </li>
+            <li class="menu-list">
+              <img class="menu-search" src="../img/search.svg" alt="search" />
+            </li>
+          </ul>
         </div>
-        
       </div>
       <div class="main">
         <div class="slider padding-site">
@@ -80,88 +78,9 @@
                 </div>
               </div>
             </div>
-  
+
             <div class="nav-explore">
               <a href="product-detail.html" class="nav-explore-link">
-                explore all
-                <img src="../img/arrow.svg" alt="arrow" class="nav-explore-img" />
-              </a>
-            </div>
-          </div>
-          <div class="carousel" v-if="active==='feature'">
-            <div class="carousel-list" v-for="image in featureList">
-              <div class="carousel-toast">
-                <a href="product-detail.html" class="button">
-                  <img class="arrow" src="../img/arrow.svg" alt="arrow" />
-                </a>
-                <div class="carousel-toast-h">Fishnet Chair</div>
-                <p class="carousel-toast-p">
-                  Seat and back with upholstery made of cold cure foam
-                </p>
-              </div>
-              <img class="carousel-image" v-bind:src="image" alt="product-1" />
-            </в>
-          </div>
-  
-        </div>
-        <div class="carousel" v-else>
-          <div class="carousel-list" v-for="image in newList">
-            <div class="carousel-toast">
-              <a href="product-detail.html" class="button">
-                <img class="arrow" src="../img/arrow.svg" alt="arrow" />
-              </a>
-              <div class="carousel-toast-h">Fishnet Chair</div>
-              <p class="carousel-toast-p">
-                Seat and back with upholstery made of cold cure foam
-              </p>
-            </div>
-            <img class="carousel-image" v-bind:src="image" alt="product-1" />
-          </div>
-        </div>
-        
-        <div class="exlusive clearfix block">
-          <ul>
-            <li class="exlusive-list">
-              <div class="exlusive-content">
-                <div class="exlusive-e">exclusive</div>
-                <div class="exlusive-h">Fishnet Chair</div>
-                <div class="exlusive-p">
-                  Seat and back with upholstery made of cold cure foam. Steel
-                  frame, available in matt
-                </div>
-                <a href="product-detail.html" class="button">
-                  <div class="button-text">Order Us</div>
-                  <img class="arrow" src="../img/arrow.svg" alt="arrow" />
-                </a>
-              </div>
-            </li>
-            <li class="exlusive-list">
-              <div class="exlusive-content">
-                <div class="exlusive-e">
-                  exclusive
-                </div>
-                <div class="exlusive-h">
-                  Fishnet Chair
-                </div>
-                <div class="exlusive-p">
-                  Seat and back with upholstery made of cold cure foam. Steel
-                  frame, available in matt
-                </div>
-                <a href="product-detail.html" class="button">
-                  <div class="button-text">Order Us</div>
-                  <img class="arrow" src="../img/arrow.svg" alt="arrow" />
-                </a>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="tp padding-site block">
-          <div class="tp-head">
-            <div class="tp-menu-h">
-              Trending Products
-            </div>
-            <div class="nav-explore">
-              <a href="#" class="nav-explore-link">
                 explore all
                 <img
                   src="../img/arrow.svg"
@@ -171,42 +90,13 @@
               </a>
             </div>
           </div>
-          <div class="grid">
-            <div class="grid-block">
-              <img src="../img/trend-product-1.png" alt="" />
-            </div>
-            <div class="grid-block">
-              <img src="../img/trend-product-2.png" alt="" />
-            </div>
-            <div class="grid-block">
-              <img src="../img/trend-product-3.png" alt="" />
-            </div>
-          </div>
+          <transition :name="active">
+            <tab :activelist="Lists[active +'List']"></tab>
+          </transition>
         </div>
-        <div class="slider padding-site">
-          <div class="slider-text">
-            <p class="slider-hot">Hot deal</p>
-            <h2 class="slider-h2">Fishnet Chair</h2>
-            <p class="slider-content">
-              Seat and back with upholstery made of cold cure foam. Steel frame,
-              available in matt powder-coated black
-            </p>
-            <a href="product-detail.html" class="button">
-              <div class="button-text">Order Us</div>
-              <img class="arrow" src="../img/arrow.svg" alt="arrow" />
-            </a>
-          </div>
-          <div class="pagination">
-            <a href="#" class="circle"></a>
-            <a href="#" class="circle circle-active"></a>
-            <a href="#" class="circle"></a>
-          </div>
-        </div>
-      </div>
-      <div class="footer padding-site">
-        <div class="footer-content">
-
-        <div class="footer-list">
+        <div class="footer padding-site">
+          <div class="footer-content">
+            <div class="footer-list">
               <h class="footer-list-h">Contact Us</h>
               <div class="footer-list-content">
                 <p class="footer-contact-p">
@@ -216,8 +106,8 @@
                   Talk to us on 1300 132 info@interior.com
                 </p>
               </div>
-        </div>
-        <div class="footer-list">
+            </div>
+            <div class="footer-list">
               <h class="footer-list-h">Useful Information</h>
               <div class="footer-list-content">
                 <div class="footer-inf-ul">
@@ -243,8 +133,8 @@
                   </div>
                 </ul>
               </div>
-        </div>
-        <div class="footer-list">
+            </div>
+            <div class="footer-list">
               <h class="footer-list-h">Let’s Stay in Touch!</h>
               <div class="footer-list-content">
                 <div class="footer-lets-p">
@@ -262,9 +152,9 @@
                   </div>
                 </form>
               </div>
-        </div>
-        </div>
-        <div class="footer-copywrite">
+            </div>
+          </div>
+          <div class="footer-copywrite">
             <div class="copywrite-list">
               <h class="copywrite-h"
                 >© Copyright - INTERIOR 2016. All Rights Reserved.</h
@@ -276,32 +166,55 @@
                 >Terms & Conditions / Privacy policy & Cookies</h
               >h
             </div>
+          </div>
         </div>
-      </div>
       </div>
     </div>
   </body>
-  
 </html>
 <script>
+  Vue.component("tab", {
+    props: {
+      activelist: Array,
+    },
+    template: `
+  <div class="carousel">
+      <div class="carousel-list" v-for="image in activelist">
+        <div class="carousel-toast">
+          <a href="product-detail.html" class="button">
+            <img class="arrow" src="../img/arrow.svg" alt="arrow" />
+          </a>
+          <div class="carousel-toast-h">Fishnet Chair</div>
+          <p class="carousel-toast-p">
+            Seat and back with upholstery made of cold cure foam
+          </p>
+        </div>
+        <img class="carousel-image" v-bind:src="image" alt="product-1" />
+      </div>
+    </div>
+
+  `,
+  });
+
   var carousel = new Vue({
     el: ".nav",
 
     data: {
       active: "feature",
-      cat: false,
-      featureList: [
-        "../img/product-1.jpg",
-        "../img/product-2.jpg",
-        "../img/product-3.jpg",
-        "../img/product-4.jpg",
-      ],
-      newList: [
-        "../img/trend-product-4.png",
-        "../img/trend-product-3.png",
-        "../img/trend-product-2.png",
-        "../img/trend-product-1.png",
-      ],
+      Lists: {
+        featureList: [
+          "../img/product-1.jpg",
+          "../img/product-2.jpg",
+          "../img/product-3.jpg",
+          "../img/product-4.jpg",
+        ],
+        newList: [
+          "../img/trend-product-4.png",
+          "../img/trend-product-3.png",
+          "../img/trend-product-2.png",
+          "../img/trend-product-1.png",
+        ],
+      },
     },
   });
 </script>

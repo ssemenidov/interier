@@ -42,56 +42,53 @@
             </a>
           </div>
         </div>
-        <template v-if="active==='feauture'">
-          <tab v-bind:activelist="featureList"></tab>
-        </template>
-        <template v-else>
-          <tab v-bind:activelist="newList"></tab>
-        </template>
+        <transition :name="active">
+          <tab :activelist="Lists[active +'List']"></tab>
+        </transition>
       </div>
     </div>
     <script>
       Vue.component("tab", {
-        props: ["activelist"],
+        props: {
+          activelist: Array,
+        },
         template: `
-        <div class="carousel">
-            <div class="carousel-list" v-for="image in activelist">
-              <div class="carousel-toast">
-                <a href="product-detail.html" class="button">
-                  <img class="arrow" src="../img/arrow.svg" alt="arrow" />
-                </a>
-                <div class="carousel-toast-h">Fishnet Chair</div>
-                <p class="carousel-toast-p">
-                  Seat and back with upholstery made of cold cure foam
-                </p>
-              </div>
-              <img class="carousel-image" v-bind:src="image" alt="product-1" />
+      <div class="carousel">
+          <div class="carousel-list" v-for="image in activelist">
+            <div class="carousel-toast">
+              <a href="product-detail.html" class="button">
+                <img class="arrow" src="../img/arrow.svg" alt="arrow" />
+              </a>
+              <div class="carousel-toast-h">Fishnet Chair</div>
+              <p class="carousel-toast-p">
+                Seat and back with upholstery made of cold cure foam
+              </p>
             </div>
+            <img class="carousel-image" v-bind:src="image" alt="product-1" />
           </div>
-        
-        `,
+        </div>
+
+      `,
       });
+
       var carousel = new Vue({
         el: ".nav",
 
         data: {
           active: "feature",
-          featureList: [
-            "../img/product-1.jpg",
-            "../img/product-2.jpg",
-            "../img/product-3.jpg",
-            "../img/product-4.jpg",
-          ],
-          newList: [
-            "../img/trend-product-4.png",
-            "../img/trend-product-3.png",
-            "../img/trend-product-2.png",
-            "../img/trend-product-1.png",
-          ],
-        },
-        methods: {
-          currentTabComponent: function () {
-            return this.active.toLowerCase() + "List";
+          Lists: {
+            featureList: [
+              "../img/product-1.jpg",
+              "../img/product-2.jpg",
+              "../img/product-3.jpg",
+              "../img/product-4.jpg",
+            ],
+            newList: [
+              "../img/trend-product-4.png",
+              "../img/trend-product-3.png",
+              "../img/trend-product-2.png",
+              "../img/trend-product-1.png",
+            ],
           },
         },
       });
