@@ -5,6 +5,14 @@
   background-repeat: repeat-x;
   background-attachment: scroll;
   position: relative;
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+
+  @media only screen and (max-width: 768px) {
+    justify-content: space-evenly;
+  }
 }
 .slider:nth-of-type(1) {
   background-image: url(../img/slider-img.jpg);
@@ -14,8 +22,6 @@
 // }
 
 .slider-text {
-  position: absolute;
-  top: 288px;
 }
 
 .slider-trending {
